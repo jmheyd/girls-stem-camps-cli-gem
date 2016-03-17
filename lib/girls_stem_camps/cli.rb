@@ -15,31 +15,31 @@ class GirlsStemCamps::CLI
 	end
 
 	def menu
-		input = nil
-		while input != "exit"
+		current_choice = nil
+		while current_choice != "exit"
 			puts "Enter the number of the camp that you would like more information about"
-			input = gets.strip.downcase
-			if input.to_i.between?(1, @camps.size)
-				puts @camps[input.to_i - 1].name
+			current_choice = gets.strip.downcase
+			if current_choice.to_i.between?(1, @camps.size)
+				puts @camps[current_choice.to_i - 1].name
 				puts " "
 				puts "Camp Price:"
-				puts @camps[input.to_i - 1].price 
+				puts @camps[current_choice.to_i - 1].price 
 				puts " "
 				puts "Camp Dates:"
-				puts @camps[input.to_i - 1].date 
+				puts @camps[current_choice.to_i - 1].date 
 				puts " "
 				puts "Camp Description:" 
-				puts @camps[input.to_i - 1].description
+				puts @camps[current_choice.to_i - 1].description
 				puts " "
 				puts "Camp Website:"
-				puts @camps[input.to_i - 1].url
+				puts @camps[current_choice.to_i - 1].url
 				puts " "
 				puts "Would you like to open the website?"
 					input = gets.strip.downcase
 					if input == "yes"
-						`open "#{@camps[input.to_i-1].url}"`
+						`open "#{@camps[current_choice.to_i-1].url}"`
 					end
-			elsif input == "list"
+			elsif current_choice == "list"
 				list_camps
 			else puts "Please enter exit, list, or a number"
 			end

@@ -13,6 +13,7 @@ class GirlsStemCamps::Camp
 		camps << self.scrape_michigan_computersci
 		#scraping from each website?? 
 		#need to require nokogirl and open-uri
+		camps
 	end
 
 	def self.scrape_stmarys

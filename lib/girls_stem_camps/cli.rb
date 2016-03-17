@@ -34,6 +34,11 @@ class GirlsStemCamps::CLI
 				puts "Camp Website:"
 				puts @camps[input.to_i - 1].url
 				puts " "
+				puts "Would you like to open the website?"
+					input = gets.strip.downcase
+					if input == "yes"
+						`open "#{@camps[input.to_i-1].url}"`
+					end
 			elsif input == "list"
 				list_camps
 			else puts "Please enter exit, list, or a number"
